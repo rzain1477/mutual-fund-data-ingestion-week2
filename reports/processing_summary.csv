@@ -1,0 +1,9 @@
+source_file,source_rows,cleaned_rows,processed_file
+fund_master.csv,6,6,data/processed/cleaned_fund_master.csv
+live_nav_history.csv,20336,8056,data/processed/cleaned_live_nav_history.csv
+public_nav_100027.csv,531,531,data/processed/cleaned_public_nav_100027.csv
+public_nav_100028.csv,531,531,data/processed/cleaned_public_nav_100028.csv
+public_nav_100029.csv,531,531,data/processed/cleaned_public_nav_100029.csv
+public_nav_100030.csv,531,531,data/processed/cleaned_public_nav_100030.csv
+public_nav_100031.csv,531,531,data/processed/cleaned_public_nav_100031.csv
+public_scheme_master.csv,37954,37954,data/processed/cleaned_public_scheme_master.csv
