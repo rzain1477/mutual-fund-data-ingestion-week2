@@ -1,7 +1,7 @@
 # Mutual Fund Data Ingestion and Analytics
 
 ## Project Overview
-A Python-based project to fetch mutual fund Net Asset Value (NAV) data using the MFAPI, store raw data, clean NAV records, and perform data quality checks.
+A Python-based project to fetch mutual fund Net Asset Value (NAV) data using MFAPI, store raw data, clean NAV records, and perform data quality checks.
 
 ## Features
 - Fetch NAV history for six mutual fund schemes.
@@ -14,16 +14,17 @@ A Python-based project to fetch mutual fund Net Asset Value (NAV) data using the
 
 ## Project Structure
 - `data/raw/` — Raw NAV data and fund master files.
-- `data/processed/` — Cleaned NAV data.
-- `notebooks/` — Analysis notebooks.
-- `sql/` — SQL scripts.
-- `dashboard/` — Dashboard files.
-- `reports/` — Data quality reports.
+- `data/processed/` — Cleaned CSV files.
+- `sql/` — SQL schema and query scripts.
+- `reports/` — Data quality and processing reports.
 - `live_nav_fetch.py` — Fetches NAV data from MFAPI.
 - `data_ingestion.py` — Inspects CSV files and generates a data quality report.
 - `process_nav_data.py` — Cleans and saves NAV history.
 - `validate_scheme_codes.py` — Validates scheme codes.
-- `requirements.txt` — Python dependencies.
+- `schema.sql` — Database schema.
+- `queries.sql` — Ten analytical SQL queries.
+- `data_dictionary.md` — Data dictionary.
+- `bluestock_mf.db` — SQLite database.
 
 ## Setup
 Install dependencies:
@@ -33,40 +34,21 @@ pip install -r requirements.txt
 ```
 
 ## Run the Project
-Fetch NAV data:
-
 ```bash
 python live_nav_fetch.py
-```
-
-Generate the data quality report:
-
-```bash
 python data_ingestion.py
-```
-
-Process NAV data:
-
-```bash
 python process_nav_data.py
-```
-
-Validate scheme codes:
-
-```bash
 python validate_scheme_codes.py
 ```
 
 ## Data Source
 Mutual fund NAV data is fetched from the MFAPI service.
 
-## Current Progress
-Live NAV fetching, data quality checks, scheme code validation, and processed NAV CSV generation have been completed for the six configured schemes.
+## Day 2 Progress
+- Added cleaned versions of available CSV datasets.
+- Created the SQLite database with `dim_date`, `dim_fund`, `fact_nav`, `fact_transactions`, `fact_performance`, and `fact_aum`.
+- Added schema, analytical queries, data dictionary, and processing reports.
+- Transaction, performance, and AUM tables remain empty because the required original datasets were not available. These tables must be populated when the original data is supplied.
 
-**Note:** The ten internship-provided CSV datasets and any remaining project requirements will be incorporated when they become available.
-
-
-## Day 2 preparation (2026-10-20)
-- Added cleaned versions of the CSV files available in `data/raw/` under `data/processed/`.
-- Added `schema.sql`, `queries.sql`, `data_dictionary.md`, `bluestock_mf.db`, and `reports/processing_summary.csv`.
-- **Important limitation:** `investor_transactions.csv`, `scheme_performance.csv`, and the full set of ten provided datasets were not present in the uploaded project ZIP. Transaction/performance tables are schema-only and are not populated with invented data. Complete loading and row-count validation after the missing original CSVs are supplied.
+## Limitation
+The complete set of ten internship-provided CSV datasets was not present in the available project files. No missing transaction or performance data has been fabricated.
